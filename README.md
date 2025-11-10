@@ -1,6 +1,6 @@
 # Conformal Prediction Implementations
 
-This repository provides concise implementations of **Conformal Prediction (CP)** using both **NumPy** and **TorchCP**, illustrating how to construct reliable, distribution-free prediction sets for classification tasks.
+This repository provides concise implementations of **Conformal Prediction (CP)** using both **NumPy** and **TorchCP**, illustrating how to construct reliable, distribution-free prediction sets for prediction tasks.
 
 ---
 
