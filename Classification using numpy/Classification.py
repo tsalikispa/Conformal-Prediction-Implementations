@@ -93,38 +93,75 @@ with open('../data/imagenet/human_readable_labels.json') as f:
 example_paths = os.listdir('../data/imagenet/examples')
 
 #########################Show some example predictions###############################
-#Loops through 10 random images
-#np.random.choice(example_paths) → randomly selects a file name.
-#imread(...) → loads the image into memory for display.
-#img_index = int(rand_path.split('.')[0]) → extracts the numeric index from the filename
-#(e.g., "123.jpg" → 123), which is used to access the corresponding row in smx.
-#prediction_set = smx[img_index] > 1 - qhat → determines which labels to include in the prediction set for this image.
-#Displays the image using Matplotlib (no axis ticks).
-#Prints the names of all labels that were included in the prediction set:
+# Loops through 10 random images
+# np.random.choice(example_paths) → randomly selects a file name.
+# imread(...) → loads the image into memory for display.
+# img_index = int(rand_path.split('.')[0]) → extracts the numeric index from the filename
+# (e.g., "123.jpg" → 123), which is used to access the corresponding row in smx.
+# prediction_set = smx[img_index] > 1 - qhat → determines which labels to include in the prediction set for this image.
+# Displays the image using Matplotlib (no axis ticks).
+# Prints the names of all labels that were included in the prediction set:
 for i in range(10):
     rand_path = np.random.choice(example_paths)
     img = imread('../data/imagenet/examples/' + rand_path)
     img_index = int(rand_path.split('.')[0])
 
-    #The softmax propabilites for a single image(NumPy array length 1000)
-    probs= smx[img_index]
+    # The softmax probabilities for a single image (NumPy array length 1000)
+    probs = smx[img_index]
 
-    # Gives a boolean mask something like prediction_set=[False, False, True, True, False,...], True means include class in the prediction set
+    # Gives a boolean mask something like prediction_set=[False, False, True, True, False,...],
+    # True means include class in the prediction set
     prediction_set = probs > 1 - qhat
+
     # Get the labels and probabilities for those classes
     selected_labels = label_strings[prediction_set]
     selected_probs = probs[prediction_set]
 
+    # Sort by probability (descendin
+
+for i in range(10):
+    rand_path = np.random.choice(example_paths)
+    img = imread('../data/imagenet/examples/' + rand_path)
+    img_index = int(rand_path.split('.')[0])
+
+    # Softmax probabilities for this image
+    probs = smx[img_index]
+
+    # Boolean mask for prediction set
+    prediction_set = probs > 1 - qhat
+
+    # Extract labels and probabilities for selected classes
+    selected_labels = label_strings[prediction_set]
+    selected_probs = probs[prediction_set]
+
+    # Sort by probability (descending)
+    sorted_idx = np.argsort(selected_probs)[::-1]
+    selected_labels = selected_labels[sorted_idx]
+    selected_probs = selected_probs[sorted_idx]
+
+    # Combine labels and probabilities into strings
     predicted_labels = [
-        f"{label} ({p * 100:.1f}%)" for label, p in zip(selected_labels, selected_probs)
+        f"{label}: {p * 100:.1f}%" for label, p in zip(selected_labels, selected_probs)
     ]
+
+    # Limit display to top 5 for readability
+    top_labels = predicted_labels[:5]
 
     # --- Plot ---
     plt.figure(figsize=(4, 4))
     plt.imshow(img)
     plt.axis('off')
-    plt.title('\n'.join(predicted_labels),  # show top 5 to avoid clutter
-              fontsize=8, color='white', backgroundcolor='black')
+
+    # Add label text box on image
+    text = "\n".join(top_labels)
+    plt.gcf().text(
+        0.02, 0.02, text,
+        fontsize=8, color='white',
+        bbox=dict(facecolor='black', alpha=0.6, boxstyle='round,pad=0.4')
+    )
+
+    plt.title("Prediction Set", fontsize=10, color='white', pad=8)
     plt.show()
+
 
 
