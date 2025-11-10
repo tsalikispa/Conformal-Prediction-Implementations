@@ -1,0 +1,11 @@
+# Ignore data and virtual environment
+data/
+.venv/
+env/
+venv/
+
+# Ignore IDE and cache files
+.idea/
+__pycache__/
+*.py[cod]
+.DS_Store
