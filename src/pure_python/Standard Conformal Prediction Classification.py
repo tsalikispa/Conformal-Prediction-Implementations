@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 #allows you to load image files into arrays
 from matplotlib.image import imread
 
-if not os.path.exists('../data'):
+if not os.path.exists('../../data'):
     #if the folder ../data doesn't exist runs the comman to download a file from Google Drive
     os.system('gdown 1h7S6N_Rx7gdfO3ZunzErZy6H7620EbZK -O ../data.tar.gz')
     #extracts the .tar.gz archive into the parent directory (../)
@@ -17,17 +17,17 @@ if not os.path.exists('../data'):
     #Removes the downloaded compressed file to save space
     os.system('rm ../data.tar.gz')
 
-if not os.path.exists('../data/imagenet/human_readable_labels.json'):
+if not os.path.exists('../../data/imagenet/human_readable_labels.json'):
     os.system('wget -nv -O ../data/imagenet/human_readable_labels.json -L https://raw.githubusercontent.com/anishathalye/imagenet-simple-labels/master/imagenet-simple-labels.json')
 
 # Loads a NumPy compressed archive (.npz) containing precomputed results (from a ResNet-152 model on ImageNet).
 #It contains arrays like :
 #smx:softmax outputs(model confidence scores)
 #labels:true class indices
-data = np.load('../data/imagenet/imagenet-resnet152.npz')
+data = np.load('../../data/imagenet/imagenet-resnet152.npz')
 
 #List all files in the folder ../data/images/examples, contiang sample images
-example_paths = os.listdir('../data/imagenet/examples')
+example_paths = os.listdir('../../data/imagenet/examples')
 
 #########################Extract Arrays#########################
 #The softmax predictions of 50000 samples,1000 probabilities per image
@@ -85,12 +85,12 @@ print(f"The empirical coverage is: {empirical_coverage}")
 ###################Load readable ImageNet labels###########################
 #Opens the JSON file containing human-readable ImageNet class names (e.g., “zebra”, “coffee mug”).
 #Loads it into a Python list, then converts to a NumPy array for easier indexing.
-with open('../data/imagenet/human_readable_labels.json') as f:
+with open('../../data/imagenet/human_readable_labels.json') as f:
     label_strings = np.array(json.load(f))
 
 #####################List example image files##########################################
 #List all example image filenames in the folder
-example_paths = os.listdir('../data/imagenet/examples')
+example_paths = os.listdir('../../data/imagenet/examples')
 
 #########################Show some example predictions###############################
 # Loops through 10 random images
