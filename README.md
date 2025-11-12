@@ -20,8 +20,8 @@ These implementations aim to highlight:
 ---
 
 ## 📂 Repository Structure
-
-Conformal Prediciton/
+Owner avatar
+Conformal-Prediction-Implementations/
 ├── src/
 │ ├── NUmPY/SciPY/ # NumPy / SciPy from-scratch implementations
 │ └── torch_cp/ # PyTorch + TorchCP implementations
