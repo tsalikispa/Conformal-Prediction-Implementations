@@ -19,14 +19,18 @@ These implementations aim to highlight:
 
 ---
 
+
+
 ## 📂 Repository Structure
-Owner avatar
+
+```text
 Conformal-Prediction-Implementations/
 ├── src/
-│ ├── NUmPY/SciPY/ # NumPy / SciPy from-scratch implementations
-│ └── torch_cp/ # PyTorch + TorchCP implementations
+│   ├── pure_python/      # NumPy / SciPy from-scratch implementations
+│   └── torch_cp/         # PyTorch + TorchCP implementations
 │
-└── notebooks/ # Jupyter notebooks with demos & visualizations
+└── notebooks/            # Jupyter notebooks with demos & visualizations
+
 
 📚 References
 
