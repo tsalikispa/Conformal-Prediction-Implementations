@@ -10,7 +10,7 @@ It illustrates how to construct reliable, **distribution-free prediction sets** 
 This project demonstrates the practical and theoretical aspects of **distribution-free uncertainty quantification** through two complementary implementations:
 
 - 🧮 **NumPy Implementation** — a fully transparent, from-scratch version for educational and research purposes using only NumPy and SciPy.  
-- ⚙️ **TorchCP Implementation** — deep learning–based examples leveraging PyTorch and the open-source [TorchCP](https://github.com/lamblin/torchCP) library.
+- ⚙️ **TorchCP Implementation** — deep learning–based examples leveraging PyTorch and the open-source [TorchCP](https://github.com/ml-stat-Sustech/TorchCP) library.
 
 These implementations aim to highlight:
 - How conformal prediction ensures valid **coverage calibration**
@@ -34,4 +34,4 @@ Angelopoulos, A. N., & Bates, S. (2022).
 A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification.
 arXiv preprint arXiv:2107.07511
 
-TorchCP Library: https://github.com/lamblin/torchCP
+TorchCP Library: [https://github.com/lamblin/torchCP](https://github.com/ml-stat-Sustech/TorchCP)
