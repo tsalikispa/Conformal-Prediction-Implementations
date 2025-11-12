@@ -34,4 +34,4 @@ Angelopoulos, A. N., & Bates, S. (2022).
 A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification.
 arXiv preprint arXiv:2107.07511
 
-TorchCP Library: [https://github.com/lamblin/torchCP](https://github.com/ml-stat-Sustech/TorchCP)
+
