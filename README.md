@@ -1,14 +1,41 @@
-# Conformal Prediction Implementations
+# 🧠 Conformal Prediction Implementations
 
-This repository provides concise implementations of **Conformal Prediction (CP)** using both **NumPy** and **TorchCP**, illustrating how to construct reliable, distribution-free prediction sets for prediction tasks.
+This repository contains concise, educational implementations of **Conformal Prediction (CP)** using both **NumPy**/**SciPY** and **TorchCP**.  
+It illustrates how to construct reliable, **distribution-free prediction sets** that quantify model uncertainty and ensure coverage guarantees.
 
 ---
 
 ## 🧭 Overview
 
-- **NumPy implementation:** transparent, from-scratch version for educational use.  
-- **TorchCP implementation:** deep learning–based examples using PyTorch and the [TorchCP](https://github.com/valeman/TorchCP) library.  
+This project demonstrates the practical and theoretical aspects of **distribution-free uncertainty quantification** through two complementary implementations:
 
-The goal is to demonstrate **uncertainty quantification**, **coverage calibration**, and **prediction set construction** for machine learning models.
+- 🧮 **NumPy Implementation** — a fully transparent, from-scratch version for educational and research purposes using only NumPy and SciPy.  
+- ⚙️ **TorchCP Implementation** — deep learning–based examples leveraging PyTorch and the open-source [TorchCP](https://github.com/ml-stat-Sustech/TorchCP) library.
+
+These implementations aim to highlight:
+- How conformal prediction ensures valid **coverage calibration**
+- Construction of **prediction sets** under minimal assumptions
+- Comparison between classical and neural methods
 
 ---
+
+
+
+## 📂 Repository Structure
+
+```text
+Conformal-Prediction-Implementations/
+├── src/
+│   ├── pure_python/      # NumPy / SciPy from-scratch implementations
+│   └── torch_cp/         # PyTorch + TorchCP implementations
+│
+└── notebooks/            # Jupyter notebooks with demos & visualizations
+
+
+📚 References
+
+Angelopoulos, A. N., & Bates, S. (2022).
+A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification.
+arXiv preprint arXiv:2107.07511
+
+
