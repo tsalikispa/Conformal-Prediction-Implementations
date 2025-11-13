@@ -24,7 +24,7 @@ print(probs_test[:5])
 [probs_cal[i, y_cal[i]--> teh predicted probability for the true class of sample i'''
 scores = 1 - np.array([probs_cal[i, y_cal[i]] for i in range(len(y_cal))])
 print(f"The shape of scores is {scores.shape}")
-print("The unoncorfmoty scores for every sample are:")
+print("The unonconformity scores for every sample are:")
 print()
 
 print(scores)
